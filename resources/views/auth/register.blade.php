@@ -26,7 +26,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
-                                    placeholder="Email Address"  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                                    placeholder="Email Address"  @error('email') is-invalid @enderror name="email" value="{{ old('email') }}">
                                     @error('email')
                                     <strong class="text-danger">{{ $message }}</strong>
                                     @enderror

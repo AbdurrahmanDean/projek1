@@ -30,8 +30,9 @@
                         <label>Jabatan</label>
                         <select class="form-control" name="jabatan" required>
                             <option value="" selected disabled>-- Pilih Jabatan --</option>
-                            <option value="1" @if($karyawan->jabatan == 1) selected @endif>Administrator</option>
-                            <option value="2" @if($karyawan->jabatan == 2) selected @endif>Anggota</option>
+                            @foreach($jabatan as $value)
+                            <option value="{{$value->id}}" @if($karyawan->jabatan == $value->id) selected @endif>{{$value->nama_jabatan}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-lg-12">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Karyawan; //Memanggil Models Karyawan Untuk digunakan di dalam Controller
+use App\Models\Jabatan;
 
 class KaryawanController extends Controller
 {
@@ -13,8 +14,9 @@ class KaryawanController extends Controller
     }
 
     public function create()
-    {
-    	return view('content.karyawan.create');
+    {	
+		$jabatan = Jabatan::all();
+    	return view('content.karyawan.create', compact('jabatan'));
     }
 
     public function save(Request $request)
@@ -38,7 +40,8 @@ class KaryawanController extends Controller
     public function edit($id) // $id adalah data yang kita terima dari parameter id yang sebelumnya sudah kita kirim melalui route
     {
     	$karyawan = Karyawan::find($id); //Berguna untuk mencari suatu data karyawan berdasarkan id
-    	return view('content.karyawan.edit', compact('karyawan')); //Data yang sudah kita cari lalu kita bawa ke view
+    	$jabatan = Jabatan::all();
+		return view('content.karyawan.edit', compact('karyawan', 'jabatan')); //Data yang sudah kita cari lalu kita bawa ke view
     }
 
     public function update(Request $request, $id)

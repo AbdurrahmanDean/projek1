@@ -21,7 +21,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
+                                <th>Nama Karyawan</th>
                                 <th>Tanggal Lahir</th>
                                 <th>Alamat</th>
                                 <th>Jabatan</th>
@@ -34,16 +34,16 @@
                             <!-- foreach digunakan untuk melakukan perulangan disebuah data array yang digunakan untuk menampilkan seluruh data array dengan aturan tertentu -->
                             @foreach($karyawan as $key => $value)
                             <tr>
-                                <td>{{$key+1}}</td> 
+                                <td>{{$key+1}}</td>
                                 <!--  {{$key+1}} digunakan sebagai urutan sebuah angka -->
                                 <td>{{$value->nama}}</td>
                                 <td>{{$value->tanggal_lahir}}</td>
                                 <td>{{$value->alamat}}</td>
-                                <td>{{$value->jabatan == 1 ? 'Admin' : 'Anggota'}}</td>
+                                <td>{{\App\Models\Jabatan::where('id', $value->jabatan)->value('nama_jabatan')}}</td>
                                 <td><img width="20%" src="{{asset('image/foto/'. $value->foto)}}"></td>
                                 <td>
                                     <a title="Edit" href="{{route('karyawan.edit', [$value->id])}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-                                    <a title="Hapus" onclick="return confirm('Yakin ingin menghapus data?')" href="{{route('karyawan.delete', [$value->id])}}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>\
+                                    <a title="Hapus" onclick="return confirm('Yakin ingin menghapus data?')" href="{{route('karyawan.delete', [$value->id])}}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                     <!-- return confirm()  berguna untuk mengirim konfirmasi sebelum mengeksekusi perintah-->
                                 </td>
                             </tr>
