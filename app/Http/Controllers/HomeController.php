@@ -30,4 +30,20 @@ class HomeController extends Controller
     {
         return view('content.home');
     }
+
+    public function indexnew()
+    {
+        return view('content.indexnew');
+    }
+
+    public function contactnew()
+    {
+        return view('content.contactnew');
+    }
+    
+    public function aboutnew()
+    {
+        return view('content.aboutnew');
+    }
+
 }

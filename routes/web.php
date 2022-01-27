@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 
+Route::get('/indexnew',[App\Http\Controllers\HomeController::class, 'indexnew'])->name('homenew');
+
+Route::get('/contactnew',[App\Http\Controllers\HomeController::class, 'contactnew'])->name('contactnew');
+
+Route::get('aboutnew',[App\Http\Controllers\HomeController::class, 'aboutnew'])->name('aboutnew');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
