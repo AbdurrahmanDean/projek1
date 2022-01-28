@@ -45,24 +45,31 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href={{url("index")}}>
+                <a class="nav-link" href={{url("admin")}}>
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Nav Item - Profil Karyawan -->
             <li class="nav-item active">
-                <a class="nav-link" href={{url("karyawan")}}>
+                <a class="nav-link" href={{url("admin/karyawan")}}>
                     <i class="far fa-user"></i>
                     <span>Daftar Karyawan</span></a>
             </li>
 
-            <!-- Nav Item - Profil Karyawan -->
+            <!-- Nav Item - Profil Jabatan -->
             <li class="nav-item active">
-                <a class="nav-link" href={{url("jabatan")}}>
+                <a class="nav-link" href={{url("admin/jabatan")}}>
                     <i class="far fa-user"></i>
                     <span>Daftar Jabatan</span></a>
             </li>
+
+           <!-- Nav Item - Profil Testimoni -->
+           <li class="nav-item active">
+            <a class="nav-link" href={{url("admin/testimoni")}}>
+                <i class="far fa-user"></i>
+                <span>Daftar Testimoni</span></a>
+            </li>            
             
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

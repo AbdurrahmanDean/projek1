@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Testimoni;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,8 @@ class HomeController extends Controller
 
     public function indexnew()
     {
-        return view('content.indexnew');
+        $testimoni = Testimoni::where('status', 'AKTIF')->get();
+        return view('content.indexnew', compact('testimoni'));
     }
 
     public function contactnew()

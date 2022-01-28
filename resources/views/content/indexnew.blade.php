@@ -367,35 +367,19 @@
                 <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-50--xs">Testimonials</p>
                 <div class="s-swiper js__swiper-testimonials">
                     <!-- Swiper Wrapper -->
+                    @foreach($testimoni as $key => $value)
                     <div class="swiper-wrapper g-margin-b-50--xs">
                         <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
                             <div class="g-padding-x-20--xs g-padding-x-50--lg">
                                 <div class="g-margin-b-40--xs">
-                                    <p class="g-font-size-22--xs g-font-size-28--sm g-color--white"><i>" I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability. "</i></p>
+                                    <p class="g-font-size-22--xs g-font-size-28--sm g-color--white"><i>{{$value->pesan}}</i></p>
                                 </div>
                                 <div class="center-block g-hor-divider__solid--white-opacity-lightest g-width-100--xs g-margin-b-30--xs"></div>
-                                <h4 class="g-font-size-15--xs g-font-size-18--sm g-color--white-opacity-light g-margin-b-5--xs">Jake Richardson / Google</h4>
-                            </div>
-                        </div>
-                        <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
-                            <div class="g-padding-x-20--xs g-padding-x-50--lg">
-                                <div class="g-margin-b-40--xs">
-                                    <p class="g-font-size-22--xs g-font-size-28--sm g-color--white"><i>" I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability. "</i></p>
-                                </div>
-                                <div class="center-block g-hor-divider__solid--white-opacity-lightest g-width-100--xs g-margin-b-30--xs"></div>
-                                <h4 class="g-font-size-15--xs g-font-size-18--sm g-color--white-opacity-light g-margin-b-5--xs">Jake Richardson / Google</h4>
-                            </div>
-                        </div>
-                        <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
-                            <div class="g-padding-x-20--xs g-padding-x-50--lg">
-                                <div class="g-margin-b-40--xs">
-                                    <p class="g-font-size-22--xs g-font-size-28--sm g-color--white"><i>" I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability. "</i></p>
-                                </div>
-                                <div class="center-block g-hor-divider__solid--white-opacity-lightest g-width-100--xs g-margin-b-30--xs"></div>
-                                <h4 class="g-font-size-15--xs g-font-size-18--sm g-color--white-opacity-light g-margin-b-5--xs">Jake Richardson / Google</h4>
+                                <h4 class="g-font-size-15--xs g-font-size-18--sm g-color--white-opacity-light g-margin-b-5--xs">{{$value->nama}}</h4>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <!-- End Swipper Wrapper -->
 
                     <!-- Arrows -->
