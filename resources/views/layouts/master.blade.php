@@ -91,6 +91,13 @@
                 <i class="fas fa-rss-square"></i>
                 <span>Blog</span></a>
             </li>
+
+            <!-- Nav Item - Profil Blog -->
+           <li class="nav-item active">
+            <a class="nav-link" href={{url("admin/gallery")}}>
+                <i class="far fa-images"></i>
+                <span>Gallery</span></a>
+            </li>
             
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

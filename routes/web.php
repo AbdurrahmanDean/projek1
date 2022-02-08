@@ -79,6 +79,16 @@ Route::middleware(['auth'])->group(function () {
 			Route::get('delete/{id}', [App\Http\Controllers\BlogController::class, 'delete'])->name('blog.delete');
 		});
 
+		Route::prefix('gallery')->group(function(){
+			Route::get('/', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
+			Route::get('create', [App\Http\Controllers\GalleryController::class, 'create'])->name('gallery.create');
+			Route::post('save', [App\Http\Controllers\GalleryController::class, 'save'])->name('gallery.save');
+			Route::get('edit/{id}', [App\Http\Controllers\GalleryController::class, 'edit'])->name('gallery.edit');
+			Route::post('update/{id}', [App\Http\Controllers\GalleryController::class, 'update'])->name('gallery.update');
+			Route::get('delete/{id}', [App\Http\Controllers\GalleryController::class, 'delete'])->name('gallery.delete');
+
+		});
+
 	});
 		
 });

@@ -79,7 +79,7 @@
                     </div>
                 </form>
             </div>
-            <img class="s-mockup-v2" src="img/mockups/pencil-01.png" alt="Mockup Image">
+            <img class="s-mockup-v2" src={{asset("compro/img/mockups/pencil-01.png")}} alt="Mockup Image">
         </div>
         <!-- End Feedback Form -->
         <!--========== END PAGE CONTENT ==========-->
