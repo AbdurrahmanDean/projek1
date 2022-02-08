@@ -180,8 +180,9 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-                        <form class="input-group">
-                            <input type="email" class="form-control s-form-v1__input g-radius--left-50" name="email" placeholder="Enter your email">
+                        <form class="input-group" action="{{route('pesan.save')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="email" class="form-control s-form-v1__input g-radius--left-50" name="email" placeholder="Enter your email" required>
                             <span class="input-group-btn">
                                 <button type="submit" class="s-btn s-btn-icon--md s-btn-icon--white-brd s-btn--white-brd g-radius--right-50"><i class="ti-arrow-right"></i></button>
                             </span>
@@ -367,8 +368,8 @@
                 <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-50--xs">Testimonials</p>
                 <div class="s-swiper js__swiper-testimonials">
                     <!-- Swiper Wrapper -->
-                    @foreach($testimoni as $key => $value)
                     <div class="swiper-wrapper g-margin-b-50--xs">
+                        @foreach($testimoni as $key => $value)
                         <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
                             <div class="g-padding-x-20--xs g-padding-x-50--lg">
                                 <div class="g-margin-b-40--xs">
@@ -378,8 +379,8 @@
                                 <h4 class="g-font-size-15--xs g-font-size-18--sm g-color--white-opacity-light g-margin-b-5--xs">{{$value->nama}}</h4>
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                    @endforeach
                     <!-- End Swipper Wrapper -->
 
                     <!-- Arrows -->
@@ -437,42 +438,20 @@
                 <h2 class="g-font-size-32--xs g-font-size-36--md">Latest News</h2>
             </div>
             <div class="row">
+                @foreach($blog as $key => $value)
                 <div class="col-sm-4 g-margin-b-30--xs g-margin-b-0--md">
                     <!-- News -->
                     <article>
-                        <img class="img-responsive" src={{asset("compro/img/970x970/01.jpg")}} alt="Image">
+                        <img class="img-responsive" src="{{asset('image/foto/'.$value->foto)}}" alt="img">
                         <div class="g-bg-color--white g-box-shadow__dark-lightest-v2 g-text-center--xs g-padding-x-40--xs g-padding-y-40--xs">
                             <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">News</p>
-                            <h3 class="g-font-size-22--xs g-letter-spacing--1"><a href={{asset("http://keenthemes.com/")}}>Create Something Great.</a></h3>
-                            <p>The time has come to bring those ideas and plans to life.</p>
+                            <h3 class="g-font-size-22--xs g-letter-spacing--1"><a href={{asset("http://keenthemes.com/")}}>{{$value->judul_artikel}}</a></h3>
+                            <p>{{$value->deskripsi}}</p>
                         </div>
                     </article>
                     <!-- End News -->
                 </div>
-                <div class="col-sm-4 g-margin-b-30--xs g-margin-b-0--md">
-                    <!-- News -->
-                    <article>
-                        <img class="img-responsive" src={{asset("compro/img/970x970/02.jpg")}} alt="Image">
-                        <div class="g-bg-color--white g-box-shadow__dark-lightest-v2 g-text-center--xs g-padding-x-40--xs g-padding-y-40--xs">
-                            <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">News</p>
-                            <h3 class="g-font-size-22--xs g-letter-spacing--1"><a href={{asset("http://keenthemes.com/")}}>Jacks of All. Experts in All.</a></h3>
-                            <p>The time has come to bring those ideas and plans to life.</p>
-                        </div>
-                    </article>
-                    <!-- End News -->
-                </div>
-                <div class="col-sm-4">
-                    <!-- News -->
-                    <article>
-                        <img class="img-responsive" src={{asset("compro/img/970x970/03.jpg")}} alt="Image">
-                        <div class="g-bg-color--white g-box-shadow__dark-lightest-v2 g-text-center--xs g-padding-x-40--xs g-padding-y-40--xs">
-                            <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">News</p>
-                            <h3 class="g-font-size-22--xs g-letter-spacing--1"><a href={{asset("http://keenthemes.com/")}}>Finding your Perfect Place.</a></h3>
-                            <p>The time has come to bring those ideas and plans to life.</p>
-                        </div>
-                    </article>
-                    <!-- End News -->
-                </div>
+                @endforeach
             </div>
         </div>
         <!-- End News -->
@@ -484,35 +463,51 @@
                     <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--lg">
                         <div class="g-text-center--xs">
                             <div class="g-margin-b-10--xs">
-                                <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter">6</figure>
-                                <span class="g-font-size-40--xs g-color--white">k</span>
+                                <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter">{{$jumlah_karyawan}}</figure>
                             </div>
                             <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
-                            <h4 class="g-font-size-18--xs g-color--white">Lines of Code</h4>
+                            <h4 class="g-font-size-18--xs g-color--white">Karyawan</h4>
                         </div>
                     </div>
                     <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--lg">
                         <div class="g-text-center--xs">
-                            <figure class="g-display-block--xs g-font-size-70--xs g-color--white g-margin-b-10--xs js__counter">5</figure>
+                            <figure class="g-display-block--xs g-font-size-70--xs g-color--white g-margin-b-10--xs js__counter">{{$jumlah_jabatan}}</figure>
                             <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
-                            <h4 class="g-font-size-18--xs g-color--white">Award Winners</h4>
+                            <h4 class="g-font-size-18--xs g-color--white">Jabatan</h4>
                         </div>
                     </div>
                     <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--sm">
                         <div class="g-text-center--xs">
-                            <figure class="g-display-block--xs g-font-size-70--xs g-color--white g-margin-b-10--xs js__counter">15</figure>
+                            <figure class="g-display-block--xs g-font-size-70--xs g-color--white g-margin-b-10--xs js__counter">{{$jumlah_testimoni}}</figure>
                             <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
-                            <h4 class="g-font-size-18--xs g-color--white">Multiple Pages</h4>
+                            <h4 class="g-font-size-18--xs g-color--white">Testimoni</h4>
                         </div>
                     </div>
                     <div class="col-md-3 col-xs-6 g-full-width--xs">
                         <div class="g-text-center--xs">
                             <div class="g-margin-b-10--xs">
-                                <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter">2</figure>
-                                <span class="g-font-size-40--xs g-color--white">x</span>
+                                <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter">{{$jumlah_pesan}}</figure>
                             </div>
                             <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
-                            <h4 class="g-font-size-18--xs g-color--white">Faster Support</h4>
+                            <h4 class="g-font-size-18--xs g-color--white">Pesan Masuk</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6 g-full-width--xs">
+                        <div class="g-text-center--xs">
+                            <div class="g-margin-b-10--xs">
+                                <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter">{{$jumlah_subscribe}}</figure>
+                            </div>
+                            <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
+                            <h4 class="g-font-size-18--xs g-color--white">Subscribe</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6 g-full-width--xs">
+                        <div class="g-text-center--xs">
+                            <div class="g-margin-b-10--xs">
+                                <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter">{{$jumlah_blog}}</figure>
+                            </div>
+                            <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
+                            <h4 class="g-font-size-18--xs g-color--white">Blog</h4>
                         </div>
                     </div>
                 </div>
@@ -525,21 +520,31 @@
             <div class="container g-padding-y-80--xs g-padding-y-125--sm">
                 <div class="g-text-center--xs g-margin-b-80--xs">
                     <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-25--xs">Feedback</p>
-                    <h2 class="g-font-size-32--xs g-font-size-36--md">Send us a note</h2>
+                    <h2 class="g-font-size-32--xs g-font-size-36--md">Kirim Kami Catatan!</h2>
                 </div>
-                <form>
+                <form class="row justify-content-center" action="{{route('testimoni.save')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row g-margin-b-40--xs">
-                        <div class="col-sm-6 g-margin-b-20--xs g-margin-b-0--md">
+                        <div class="col-sm-10 g-margin-b-20--xs g-margin-b-0--md">
                             <div class="g-margin-b-20--xs">
-                                <input type="text" class="form-control s-form-v2__input g-radius--50" placeholder="* Name">
+                                <input type="text" name="nama" class="form-control s-form-v2__input g-radius--50" placeholder="* Nama" required>
                             </div>
                             <div class="g-margin-b-20--xs">
-                                <input type="email" class="form-control s-form-v2__input g-radius--50" placeholder="* Email">
+                                <input type="email" name="email" class="form-control s-form-v2__input g-radius--50" placeholder="* Email" required>
                             </div>
-                            <input type="text" class="form-control s-form-v2__input g-radius--50" placeholder="* Phone">
+                            <div class="g-margin-b-20--xs">
+                            <input type="text" name="no_telp" class="form-control s-form-v2__input g-radius--50" placeholder="* Nomor Telepon" required>
+                            </div>
+                            <div class="g-margin-b-20--xs">
+                            <select name="status" class="form-control s-form-v2__input g-radius--50" required>
+                                <option value="" selected disabled>* Pilih Status</option>
+                                <option value="AKTIF">Aktif</option>
+                                <option value="NONAKTIF">Non Aktif</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <textarea class="form-control s-form-v2__input g-radius--10 g-padding-y-20--xs" rows="8" placeholder="* Your message"></textarea>
+                        <div class="col-sm-10">
+                            <textarea class="form-control s-form-v2__input g-radius--10 g-padding-y-20--xs" rows="8" name="pesan" placeholder="* Pesan" required></textarea>
                         </div>
                     </div>
                     <div class="g-text-center--xs">
@@ -552,7 +557,7 @@
 
         <!-- Google Map -->
         <section class="s-google-map">
-            <div id="js__google-container" class="s-google-container g-height-400--xs"></div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5264801550848!2d106.89013341406415!3d-6.325747795422074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eda911ab7471%3A0xb6e2ffa1495135d2!2sInti%20Multi%20Solusi%20IMS!5e0!3m2!1sid!2sid!4v1643968923362!5m2!1sid!2sid" width="1280" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </section>
         <!-- End Google Map -->
         <!--========== END PAGE CONTENT ==========-->

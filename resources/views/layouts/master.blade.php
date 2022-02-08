@@ -33,11 +33,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href={{url("/")}}>
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href={{url("/admin")}}>
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-users-cog"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">IMS - Admin</div>
             </a>
 
             <!-- Divider -->
@@ -53,23 +53,44 @@
             <!-- Nav Item - Profil Karyawan -->
             <li class="nav-item active">
                 <a class="nav-link" href={{url("admin/karyawan")}}>
-                    <i class="far fa-user"></i>
+                    <i class="fas fa-users"></i>
                     <span>Daftar Karyawan</span></a>
             </li>
 
             <!-- Nav Item - Profil Jabatan -->
             <li class="nav-item active">
                 <a class="nav-link" href={{url("admin/jabatan")}}>
-                    <i class="far fa-user"></i>
+                    <i class="fas fa-user-md"></i>
                     <span>Daftar Jabatan</span></a>
             </li>
 
            <!-- Nav Item - Profil Testimoni -->
            <li class="nav-item active">
             <a class="nav-link" href={{url("admin/testimoni")}}>
-                <i class="far fa-user"></i>
+                <i class="fas fa-quote-left"></i>
                 <span>Daftar Testimoni</span></a>
-            </li>            
+            </li>     
+            
+            <!-- Nav Item - Profil Pesan Masuk -->
+           <li class="nav-item active">
+            <a class="nav-link" href={{url("admin/pesan")}}>
+                <i class="fas fa-comments"></i>
+                <span>Pesan Masuk</span></a>
+            </li>
+
+             <!-- Nav Item - Profil Subscribe -->
+           <li class="nav-item active">
+            <a class="nav-link" href={{url("admin/subscribe")}}>
+                <i class="fas fa-user-plus"></i>
+                <span>Subscribe</span></a>
+            </li>
+
+            <!-- Nav Item - Profil Blog -->
+           <li class="nav-item active">
+            <a class="nav-link" href={{url("admin/blog")}}>
+                <i class="fas fa-rss-square"></i>
+                <span>Blog</span></a>
+            </li>
             
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

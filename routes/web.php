@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/',[App\Http\Controllers\HomeController::class, 'indexnew'])->name('homenew');
 
 Route::get('/contact',[App\Http\Controllers\HomeController::class, 'contactnew'])->name('contactnew');
+
+Route::get('/team', [App\Http\Controllers\HomeController::class, 'teamnew'])->name('teamnew');
 
 Route::get('/about',[App\Http\Controllers\HomeController::class, 'aboutnew'])->name('aboutnew');
 
@@ -54,6 +55,30 @@ Route::middleware(['auth'])->group(function () {
 			Route::get('update-status/{id}', [App\Http\Controllers\TestimoniController::class, 'updateStatus'])->name('testimoni.update-status');
 			Route::get('delete/{id}', [App\Http\Controllers\TestimoniController::class, 'delete'])->name('testimoni.delete');
 		});
+
+		Route::prefix('pesan')->group(function(){
+			Route::get('/', [App\Http\Controllers\PesanController::class, 'index'])->name('pesan');
+			Route::post('save', [App\Http\Controllers\PesanController::class, 'save'])->name('pesan.save');
+			Route::get('edit/{id}', [App\Http\Controllers\PesanController::class, 'edit'])->name('pesan.edit');
+			Route::post('update/{id}', [App\Http\Controllers\PesanController::class, 'update'])->name('pesan.update');
+			Route::get('delete/{id}', [App\Http\Controllers\PesanController::class, 'delete'])->name('pesan.delete');
+		});
+
+		Route::prefix('subscribe')->group(function(){
+			Route::get('/', [App\Http\Controllers\SubscribeController::class, 'index'])->name('subscribe');
+			Route::post('save', [App\Http\Controllers\SubscribeController::class, 'save'])->name('susbcribe.save');
+			Route::get('delete/{id}', [App\Http\Controllers\SubscribeController::class, 'delete'])->name('subscribe.delete');
+		});
+
+		Route::prefix('blog')->group(function(){
+			Route::get('/', [App\Http\Controllers\BlogController::class, 'index'])->name('blog');
+			Route::get('create', [App\Http\Controllers\BlogController::class, 'create'])->name('blog.create');
+			Route::post('save', [App\Http\Controllers\BlogController::class, 'save'])->name('blog.save');
+			Route::get('edit/{id}', [App\Http\Controllers\BlogController::class, 'edit'])->name('blog.edit');
+			Route::post('update/{id}', [App\Http\Controllers\BlogController::class, 'update'])->name('blog.update');
+			Route::get('delete/{id}', [App\Http\Controllers\BlogController::class, 'delete'])->name('blog.delete');
+		});
+
 	});
 		
 });

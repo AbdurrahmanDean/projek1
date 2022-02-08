@@ -33,7 +33,7 @@
                         <td>{{$value->no_telp}}</td>
                         <td>{{$value->pesan}}</td>
                         <td>
-                            <a title="Update Status" onclick="return confirm('Yakin ingin mengubah status?')" href="{{route('testimoni.update-status', [$value->id])}}" class="btn btn-sm {{$value->status == 'AKTIF' ? 'btn-success' : 'btn-danger'}}"> 
+                            <a title="Update Status" onclick="return confirm('Yakin ingin mengubah status?')" href="{{route('testimoni.update-status', [$value->id])}}" class="btn btn-sm {{$value->status == 'AKTIF' ? 'btn-success' : 'btn-danger'}}">
                                 {{-- if di dalam class adalah ? --}}
                                 @if($value->status == "AKTIF")
                                 <i class="fas fa-check"></i>
@@ -48,6 +48,10 @@
                         </td>
                     </tr>
                     @endforeach
+                </tbody>
+            </table>
         </div>
+    </div>
+    
 </div>
 @endsection

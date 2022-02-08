@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Karyawan;
+use App\Models\Jabatan;
 use App\Models\Testimoni;
+use App\Models\Pesan;  
+use App\Models\Subscribe; 
+use App\Models\Blog;
 
 class HomeController extends Controller
 {
@@ -19,7 +24,20 @@ class HomeController extends Controller
      */
     public function welcome()
     {
-        return view('content.index');
+        $jumlah_karyawan = Karyawan::all()->count();
+        $jumlah_jabatan = Jabatan::all()->count();
+        $jumlah_testimoni = Testimoni::all()->count();
+        $jumlah_pesan = Pesan::all()->count();
+        $jumlah_subscribe = Subscribe::all()->count();
+        $jumlah_blog = Blog::all()->count();
+
+        return view('content.index')
+        ->with('jumlah_karyawan', $jumlah_karyawan)
+        ->with('jumlah_jabatan', $jumlah_jabatan)
+        ->with('jumlah_testimoni', $jumlah_testimoni)
+        ->with('jumlah_pesan', $jumlah_pesan)
+        ->with('jumlah_subscribe', $jumlah_subscribe)
+        ->with('jumlah_blog', $jumlah_blog);
     }
     
     public function index()
@@ -29,17 +47,40 @@ class HomeController extends Controller
 
     public function indexnew()
     {
+        $jumlah_karyawan = Karyawan::all()->count();
+        $jumlah_jabatan = Jabatan::all()->count();
+        $jumlah_testimoni = Testimoni::all()->count();
+        $jumlah_pesan = Pesan::all()->count();
+        $jumlah_subscribe = Subscribe::all()->count();
+        $jumlah_blog = Blog::all()->count();
+        $blog = Blog::all();
         $testimoni = Testimoni::where('status', 'AKTIF')->get();
-        return view('content.indexnew', compact('testimoni'));
+
+        return view('content.indexnew', compact('testimoni','blog','jumlah_karyawan','jumlah_jabatan','jumlah_testimoni','jumlah_pesan','jumlah_subscribe','jumlah_blog'));
+        
+        // ->with('jumlah_karyawan', $jumlah_karyawan)
+        // ->with('jumlah_jabatan', $jumlah_jabatan)
+        // ->with('jumlah_testimoni', $jumlah_testimoni)
+        // ->with('jumlah_pesan', $jumlah_pesan)
+        // ->with('jumlah_subscribe', $jumlah_subscribe)
+        // ->with('jumlah_blog', $jumlah_blog);
     }
 
     public function contactnew()
     {
         return view('content.contactnew');
     }
+
+    public function teamnew()
+    {
+        $karyawan = Karyawan::all();
+
+        return view('content.team', compact('karyawan'));
+    }
     
     public function aboutnew()
     {
+
         return view('content.aboutnew');
     }
 

@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group col-lg-12 text-right">
                     <a href="{{route('testimoni')}}" class="btn btn-sm btn-secondary"><i class="fas fa-time mr-2"></i>Batal</a>
-                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save mr-2"></i>Simpan</button>
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-save mr-2"></i>Simpan</button>
                 </div>
             </form>
         </div>
